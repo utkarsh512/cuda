@@ -164,7 +164,7 @@ void Conv3D(const float *padded_input, float *output, int depth, int rows, int c
             for (int dy = 0; dy < DIM_3_KERNEL_Y; dy++) {
                 for (int dx = 0; dx < DIM_3_KERNEL_X; dx++) {
                     int input_idx = (z + dz) * ((rows + DIM_3_PAD_Y * 2) * \
-                        (cols + DIM_3_PAD_X)) + (y + dy) * \
+                        (cols + DIM_3_PAD_X * 2)) + (y + dy) * \
                         (cols + DIM_3_PAD_X * 2) + x + dx;
                     int kernel_idx = dz * DIM_3_KERNEL_Y * DIM_3_KERNEL_X + \
                         dy * DIM_3_KERNEL_X + dx;
@@ -190,7 +190,7 @@ int test_Conv3D(const float *padded_input, const float *output,
                     for (int dy = 0; dy < DIM_3_KERNEL_Y; dy++) {
                         for (int dx = 0; dx < DIM_3_KERNEL_X; dx++) {
                             int input_idx = (z + dz) * ((rows + DIM_3_PAD_Y * 2) * \
-                                (cols + DIM_3_PAD_X)) + (y + dy) * \
+                                (cols + DIM_3_PAD_X * 2)) + (y + dy) * \
                                 (cols + DIM_3_PAD_X * 2) + x + dx;
                             int kernel_idx = dz * DIM_3_KERNEL_Y * DIM_3_KERNEL_X + \
                                 dy * DIM_3_KERNEL_X + dx;
